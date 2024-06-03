@@ -24,7 +24,7 @@ function App() {
 
   return (
     <div>
-      <h1>Text Summarization Web App</h1>
+      <h1>Abbrivio AI: Summaries in Progress!</h1>
       <textarea
         placeholder="Enter text to summarize..."
         value={inputText}
