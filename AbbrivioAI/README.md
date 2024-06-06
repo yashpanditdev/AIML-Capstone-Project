@@ -85,6 +85,10 @@ Welcome to Abbrivio AI, a web application designed for text summarization. Built
 
 3. Click the "Summarize" button to generate the summary.
 
+## Project Status
+
+Abbrivio AI is currently under development. While the core features are functional, additional enhancements and improvements are planned. Feel free to contribute by submitting bug reports, feature requests, or pull requests.
+
 ## Technologies Utilized
 
 - Material UI
@@ -92,6 +96,11 @@ Welcome to Abbrivio AI, a web application designed for text summarization. Built
 - Django
 - Django Rest Framework
 - Axios
+
+## Author
+
+- Viki Patel
+- Contact Email: vickypatel1293@gmail.com
 
 ```
 ```
