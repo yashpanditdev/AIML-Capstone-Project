@@ -6,6 +6,8 @@ import { ThemeProvider, createTheme } from '@mui/material/styles';
 import SummarizeButton from './components/SummarizeButton';
 import SummaryOutput from './components/SummaryOutput';
 import TextInput from './components/TextInput';
+import NavigationBar from './components/NavigationBar';
+import Footer from './components/Footer';
 
 const theme = createTheme({
   palette: {
@@ -18,6 +20,7 @@ const theme = createTheme({
   },
   typography: {
     h4: {
+      marginTop: '5rem',
       marginBottom: '1rem',
     },
   },
@@ -44,18 +47,20 @@ function App() {
   };
 
   return (
-    <ThemeProvider theme={theme}>
-      <Container maxWidth="sm" style={{ marginTop: '2rem' }}>
-        <Typography variant="h4" align="center" gutterBottom>
-          Abbrivio AI: Summaries in Progress!
-        </Typography>
-        <Paper style={{ padding: '1rem' }}>
-          <TextInput value={inputText} onChange={handleChange} />
-          <SummarizeButton onClick={handleSubmit} />
-          <SummaryOutput summary={summary} />
-        </Paper>
-      </Container>
-    </ThemeProvider>
+    <ThemeProvider theme={theme} style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+    <NavigationBar />
+    <Container maxWidth="sm" style={{ marginTop: '2rem', marginBottom: '2rem', flex: 1 }}>
+      <Typography variant="h4" align="center" gutterBottom>
+        Abbrivio AI: Summaries in Progress!
+      </Typography>
+      <Paper style={{ padding: '1rem' }}>
+        <TextInput value={inputText} onChange={handleChange} />
+        <SummarizeButton onClick={handleSubmit} />
+        <SummaryOutput summary={summary} />
+      </Paper>
+    </Container>
+    <Footer />
+  </ThemeProvider>
   );
 }
 
