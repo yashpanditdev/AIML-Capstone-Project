@@ -2,6 +2,25 @@
 
 Abbrivio AI is a text summarization web application that helps users to summarize text. It uses a fine-tuned BART model trained on a limited subset of the CNN/Daily Mail dataset.
 
+## Table of Contents
+
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [Installation](#installation)
+  - [Prerequisites](#prerequisites)
+  - [Backend Setup](#backend-setup)
+  - [Frontend Setup](#frontend-setup)
+  - [Downloading the Fine-Tuned BART Model](#downloading-the-fine-tuned-bart-model)
+- [Usage](#usage)
+- [Screenshots](#screenshots)
+- [API Documentation](#api-documentation)
+- [Testing](#testing)
+- [Troubleshooting](#troubleshooting)
+- [Additional Information](#additional-information)
+- [License](#license)
+- [Contributing](#contributing)
+- [Contact](#contact)
+
 ## Features
 
 - Summarize text using a fine-tuned BART model.
@@ -65,11 +84,33 @@ Abbrivio AI is a text summarization web application that helps users to summariz
     npm start
     ```
 
+### Downloading the Fine-Tuned BART Model
+
+1. **Download the fine-tuned BART model folder**:
+   - [Download link for fine-tuned BART model](#)
+
+2. **Place the downloaded folder in the specified directory**:
+   - After downloading, place the `fine-tuned-bart` folder in the following path:
+     ```plaintext
+     AbbrivioAI/backend/app/fine-tuned-bart
+     ```
+
 ## Usage
 
 1. Open your web browser and navigate to `http://localhost:3000`.
 2. Enter the text you want to summarize in the provided input box.
 3. Click the "Summarize" button to generate the summary.
+
+## Screenshots
+
+
+## API Documentation
+
+
+## Testing
+
+
+## Troubleshooting
 
 
 ## Additional Information
@@ -84,7 +125,6 @@ Before using the fine-tuned BART model, an attempt was made to train a custom mo
 - Suggestions to improve this project are welcome.
 - Contact me if you need any documentation or help in setting up the project.
 - Work is in progress for deployment and making it better.
-clear
 
 ## License
 
@@ -97,3 +137,6 @@ If you would like to contribute to this project, please fork the repository and 
 ## Contact
 
 For any questions, suggestions, or help, please open an issue or contact me directly.
+
+Viki Patel  
+vickypatel1293@gmail.com
