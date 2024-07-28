@@ -1,6 +1,5 @@
-// src/components/SummaryPage.js
 import React, { useState } from 'react';
-import { Container, Typography, Paper, Button } from '@mui/material';
+import { Container, Typography, Paper, Button, Alert } from '@mui/material';
 import TextInput from './TextInput';
 import PdfInput from './PdfInput';
 import SummaryOutput from './SummaryOutput';
@@ -10,6 +9,7 @@ function SummaryPage() {
   const [inputText, setInputText] = useState('');
   const [summary, setSummary] = useState('');
   const [pdfFile, setPdfFile] = useState(null);
+  const [uploadStatus, setUploadStatus] = useState('');  // New state for upload status
 
   const handleChange = (e) => {
     setInputText(e.target.value);
@@ -17,6 +17,7 @@ function SummaryPage() {
 
   const handleFileChange = (e) => {
     setPdfFile(e.target.files[0]);
+    setUploadStatus('PDF uploaded successfully');  // Update status on file change
   };
 
   const handleSubmit = async () => {
@@ -44,6 +45,11 @@ function SummaryPage() {
       <Paper style={{ padding: '1rem' }}>
         <TextInput value={inputText} onChange={handleChange} />
         <PdfInput onFileChange={handleFileChange} />
+        {uploadStatus && (  // Conditional rendering based on upload status
+          <Alert severity="success" style={{ marginTop: '1rem' }}>
+            {uploadStatus}
+          </Alert>
+        )}
         <Button variant="contained" color="primary" onClick={handleSubmit} style={{ marginTop: '1rem' }}>
           Summarize
         </Button>
