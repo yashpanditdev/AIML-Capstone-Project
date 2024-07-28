@@ -1,27 +1,38 @@
+// src/components/SummaryPage.js
 import React, { useState } from 'react';
-import axios from 'axios';
-import { Container, Typography, Paper } from '@mui/material';
+import { Container, Typography, Paper, Button } from '@mui/material';
 import TextInput from './TextInput';
-import SummarizeButton from './SummarizeButton';
+import PdfInput from './PdfInput';
 import SummaryOutput from './SummaryOutput';
-
-const baseURL = 'http://localhost:8000';
+import { generateSummary, summarizePdf } from '../api';
 
 function SummaryPage() {
   const [inputText, setInputText] = useState('');
   const [summary, setSummary] = useState('');
+  const [pdfFile, setPdfFile] = useState(null);
 
   const handleChange = (e) => {
     setInputText(e.target.value);
   };
 
+  const handleFileChange = (e) => {
+    setPdfFile(e.target.files[0]);
+  };
+
   const handleSubmit = async () => {
     try {
-      const response = await axios.post(`${baseURL}/api/generate-summary/`, { text: inputText });
-      console.log('Response from backend:', response.data);
-      setSummary(response.data.summary);
+      let generatedSummary = '';
+      if (pdfFile) {
+        generatedSummary = await summarizePdf(pdfFile);
+      } else if (inputText) {
+        generatedSummary = await generateSummary(inputText);
+      } else {
+        alert('Please provide either text or a PDF file to summarize.');
+        return;
+      }
+      setSummary(generatedSummary);
     } catch (error) {
-      console.error(error);
+      console.error('Error generating summary:', error);
     }
   };
 
@@ -32,7 +43,10 @@ function SummaryPage() {
       </Typography>
       <Paper style={{ padding: '1rem' }}>
         <TextInput value={inputText} onChange={handleChange} />
-        <SummarizeButton onClick={handleSubmit} />
+        <PdfInput onFileChange={handleFileChange} />
+        <Button variant="contained" color="primary" onClick={handleSubmit} style={{ marginTop: '1rem' }}>
+          Summarize
+        </Button>
         <SummaryOutput summary={summary} />
       </Paper>
     </Container>
